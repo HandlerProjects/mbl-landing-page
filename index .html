@@ -997,14 +997,27 @@
     function submitDiag(e) {
       e.preventDefault();
       const form = document.getElementById('diag-form');
-      const data = new FormData(form);
+      const nombre = form.querySelector('[name=nombre]').value;
+      const empresa = form.querySelector('[name=empresa]').value;
+      const telefono = form.querySelector('[name=telefono]').value;
+      const email = form.querySelector('[name=email]').value;
+      const sector_form = form.querySelector('[name=sector_form]').value;
+      const preferencia = form.querySelector('[name=preferencia]').value;
+      const extra = form.querySelector('[name=extra]').value;
 
-      data.append('access_key', 'ebc21289-7d97-472c-9270-19cf0ecd251d');
-      data.append('subject', '[MBL Studio] Nuevo diagnóstico recibido');
+      const payload = {
+        access_key: 'ebc21289-7d97-472c-9270-19cf0ecd251d',
+        subject: '[MBL Studio] Nuevo diagnóstico recibido',
+        from_name: 'MBL Studio Web',
+        nombre, empresa, telefono, email, sector_form, preferencia, extra,
+        q1: answers.q1, q2: answers.q2, q3: answers.q3,
+        sector: selectedSector
+      };
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: data
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
       }).then(r => r.json()).then(res => {
         if (res.success) {
           form.style.display = 'none';
