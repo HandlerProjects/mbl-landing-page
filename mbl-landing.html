@@ -999,17 +999,17 @@
       const form = document.getElementById('diag-form');
       const data = new FormData(form);
 
-      // Envío a Formspree (reemplaza YOUR_FORM_ID con el tuyo)
-      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      data.append('access_key', 'ebc21289-7d97-472c-9270-19cf0ecd251d');
+      data.append('subject', '[MBL Studio] Nuevo diagnóstico recibido');
+
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(r => {
-        if (r.ok) {
+        body: data
+      }).then(r => r.json()).then(res => {
+        if (res.success) {
           form.style.display = 'none';
           document.getElementById('diag-success').style.display = 'block';
         } else {
-          // Fallback: mailto
           fallbackMail();
         }
       }).catch(() => fallbackMail());
