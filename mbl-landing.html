@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MBL Studio — Aplicaciones a medida para tu empresa</title>
+  <meta name="description" content="Desarrollamos aplicaciones web a medida para pequeñas y medianas empresas. Simples, modernas y asequibles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f0efe9;
+      --bg2: #f7f6f2;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.07);
+      --border2: rgba(0,0,0,0.04);
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --soft: #a1a1a6;
+      --accent: #2c5282;
+      --accent-h: #2a4a7f;
+      --accent-light: rgba(44,82,130,0.07);
+      --accent-mid: rgba(44,82,130,0.13);
+      --green: #30d158;
+      --radius: 20px;
+      --radius2: 28px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+      --shadow: 0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05);
+      --max: 1060px;
+      --font: 'Outfit', system-ui, sans-serif;
+      --serif: 'DM Serif Display', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(.22,.68,0,1.2), transform 0.7s cubic-bezier(.22,.68,0,1.2);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(250,250,250,0.85);
+      backdrop-filter: saturate(180%) blur(22px);
+      -webkit-backdrop-filter: saturate(180%) blur(22px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 54px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .brand-mark {
+      width: 33px; height: 33px; border-radius: 9px;
+      background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+    .brand-mark span { font-weight: 900; font-size: 11px; color: white; letter-spacing: -0.3px; }
+    .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.3px; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 6px 12px; border-radius: 20px;
+      transition: color 0.2s, background 0.2s; cursor: pointer;
+    }
+    .nav-link:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+    .nav-cta {
+      font-size: 13px; font-weight: 600; color: white;
+      background: var(--accent); border: none; cursor: pointer;
+      padding: 8px 18px; border-radius: 20px; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent-h); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 148px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 900px 500px at 50% -80px, rgba(0,113,227,0.06), transparent),
+        radial-gradient(ellipse 500px 300px at 10% 90%, rgba(0,113,227,0.04), transparent),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent-light); border: 1px solid var(--accent-mid);
+      border-radius: 999px; padding: 6px 16px;
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      margin-bottom: 32px;
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.6s 0.1s ease forwards;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+      animation: blink 2s ease infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    .hero-title {
+      font-size: clamp(42px, 7vw, 82px);
+      font-weight: 800;
+      letter-spacing: -2.5px;
+      line-height: 1.02;
+      margin-bottom: 20px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.7s 0.2s ease forwards;
+    }
+    .hero-title em {
+      font-style: normal;
+      font-family: var(--serif);
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 52ch;
+      margin: 0 auto 36px;
+      line-height: 1.55;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.7s 0.3s ease forwards;
+    }
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.7s 0.4s ease forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: white;
+      font-family: var(--font); font-weight: 600; font-size: 15px;
+      padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,113,227,0.25);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--accent-h); transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,113,227,0.32);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); color: var(--text);
+      font-family: var(--font); font-weight: 600; font-size: 15px;
+      padding: 14px 28px; border-radius: 14px;
+      border: 1px solid var(--border); cursor: pointer;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-secondary:hover { background: var(--bg2); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    .hero-proof {
+      margin-top: 52px;
+      display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.6s ease forwards;
+    }
+    .proof-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+    .proof-icon { font-size: 15px; }
+    .proof-div { width: 1px; height: 16px; background: var(--border); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 90px 0; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; letter-spacing: -1.2px; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+    .section-sub {
+      font-size: 17px; color: var(--muted); line-height: 1.6;
+      max-width: 54ch; margin-bottom: 52px;
+    }
+
+    /* ── PRODUCTOS ── */
+    .productos { background: var(--bg2); }
+    .productos-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .producto-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 36px;
+      box-shadow: var(--shadow);
+      position: relative; overflow: hidden;
+      transition: transform 0.3s cubic-bezier(.22,.68,0,1.2), box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .producto-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .producto-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: var(--radius2) var(--radius2) 0 0;
+    }
+    .producto-card.jornada::before { background: linear-gradient(90deg, #0071e3, #34aadc); }
+    .producto-card.agenda::before { background: linear-gradient(90deg, #30d158, #0071e3); }
+
+    .producto-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .jornada .producto-icon { background: rgba(0,113,227,0.08); }
+    .agenda .producto-icon { background: rgba(48,209,88,0.08); }
+
+    .producto-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+    }
+    .badge-live { background: rgba(48,209,88,0.1); color: #1a9e3f; }
+    .badge-dev { background: rgba(255,159,10,0.1); color: #cc7a00; }
+    .badge-dot-sm { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+    .producto-card h3 {
+      font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px;
+    }
+    .producto-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .feature-list li {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 13px; color: var(--muted);
+    }
+    .feature-list li::before {
+      content: ''; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--accent-light); border: 1.5px solid var(--accent-mid);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%230071e3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+    .producto-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      margin-top: 24px; text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .producto-link:hover { gap: 9px; }
+
+    /* ── SECTORES ── */
+    .sectores-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .sector-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 18px;
+      text-align: center; cursor: pointer;
+      transition: transform 0.25s cubic-bezier(.22,.68,0,1.2), box-shadow 0.25s ease, border-color 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+    .sector-card:hover, .sector-card.selected {
+      transform: translateY(-3px); box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+    .sector-card.selected { background: var(--accent-light); }
+    .sector-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+    .sector-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .sector-desc { font-size: 11px; color: var(--soft); }
+
+    /* ── CÓMO FUNCIONA ── */
+    .como { background: var(--bg2); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius2); padding: 32px 28px;
+      box-shadow: var(--shadow-sm); position: relative;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--accent); color: white;
+      font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .step-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .step-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .step-connector {
+      position: absolute; top: 50px; right: -12px;
+      width: 24px; height: 2px; background: var(--border);
+      z-index: 1;
+    }
+
+    /* ── CASO REAL ── */
+    .caso-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius2); padding: 48px;
+      box-shadow: var(--shadow); display: grid;
+      grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+    }
+    .caso-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(48,209,88,0.1); color: #1a9e3f;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;
+    }
+    .caso-card h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.6px; margin-bottom: 10px; }
+    .caso-card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+    .caso-stats { display: flex; flex-direction: column; gap: 16px; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 38px; font-weight: 800; letter-spacing: -1.5px; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 12px; color: var(--soft); margin-top: 4px; }
+    .stat-div { width: 40px; height: 1px; background: var(--border); margin: 0 auto; }
+
+    /* ── DIAGNÓSTICO ── */
+    .diag-section { background: var(--bg2); }
+    .diag-wrapper {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius2); box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .diag-header {
+      background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%);
+      padding: 36px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .diag-header-text h3 { font-size: 22px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .diag-header-text p { font-size: 14px; color: rgba(255,255,255,0.6); }
+    .diag-progress-dots { display: flex; gap: 8px; }
+    .dpd {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dpd.active { background: white; transform: scale(1.3); }
+    .dpd.done { background: rgba(255,255,255,0.5); }
+
+    .diag-body { padding: 40px; }
+
+    .diag-panel { display: none; }
+    .diag-panel.active { display: block; animation: panelIn 0.4s cubic-bezier(.22,.68,0,1.2) both; }
+    @keyframes panelIn { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
+
+    .diag-question { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; }
+    .diag-hint { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+
+    .diag-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .diag-options.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .diag-opt {
+      background: var(--bg2); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 16px 18px;
+      cursor: pointer; text-align: left;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .diag-opt:hover { border-color: rgba(0,113,227,0.3); background: var(--accent-light); transform: translateY(-1px); }
+    .diag-opt.selected { border-color: var(--accent); background: var(--accent-light); }
+    .diag-opt-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+    .diag-opt-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+    .diag-opt-desc { font-size: 12px; color: var(--soft); }
+
+    .diag-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; }
+    .diag-back {
+      background: none; border: 1px solid var(--border); color: var(--muted);
+      font-family: var(--font); font-size: 14px; font-weight: 500;
+      padding: 10px 20px; border-radius: 12px; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .diag-back:hover { border-color: var(--text); color: var(--text); }
+    .diag-next {
+      background: var(--accent); color: white;
+      font-family: var(--font); font-size: 14px; font-weight: 600;
+      padding: 10px 24px; border-radius: 12px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .diag-next:hover:not(:disabled) { background: var(--accent-h); transform: translateY(-1px); }
+    .diag-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+    /* Paso 4 — formulario */
+    .diag-result-header {
+      background: var(--accent-light); border: 1px solid var(--accent-mid);
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 28px;
+    }
+    .diag-result-header p { font-size: 14px; color: var(--accent); font-weight: 500; }
+    .diag-result-header strong { display: block; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: 13px; font-weight: 600; color: var(--text); }
+    .form-field input, .form-field textarea, .form-field select {
+      font-family: var(--font); font-size: 14px; color: var(--text);
+      background: var(--bg2); border: 1.5px solid var(--border);
+      border-radius: var(--radius3, 12px); padding: 11px 14px;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light);
+    }
+    .form-field textarea { min-height: 90px; resize: vertical; }
+    .form-submit {
+      background: var(--accent); color: white;
+      font-family: var(--font); font-size: 15px; font-weight: 700;
+      padding: 14px 32px; border-radius: 14px; border: none; cursor: pointer;
+      width: 100%; margin-top: 6px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 8px 24px rgba(0,113,227,0.22);
+    }
+    .form-submit:hover { background: var(--accent-h); transform: translateY(-1px); }
+    .form-note { font-size: 12px; color: var(--soft); text-align: center; margin-top: 10px; }
+
+    .diag-success {
+      text-align: center; padding: 40px 20px; display: none;
+    }
+    .diag-success .success-icon { font-size: 52px; margin-bottom: 16px; }
+    .diag-success h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .diag-success p { font-size: 15px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1d1d1f; color: rgba(255,255,255,0.7);
+      padding: 52px 0 36px;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand-mark {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-brand-mark span { font-size: 10px; font-weight: 900; color: white; }
+    .footer-name { font-size: 14px; font-weight: 600; color: white; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-link { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-link:hover { color: white; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); width: 100%; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .productos-grid { grid-template-columns: 1fr; }
+      .sectores-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .caso-card { grid-template-columns: 1fr; }
+      .caso-stats { flex-direction: row; justify-content: center; }
+      .diag-options { grid-template-columns: 1fr; }
+      .diag-options.cols-3 { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      nav .nav-link { display: none; }
+      .diag-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .hero { padding: 120px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#">
+          <div class="brand-mark"><span>MBL</span></div>
+          <span class="brand-name">MBL Studio</span>
+        </a>
+        <nav>
+          <a class="nav-link" href="#productos">Productos</a>
+          <a class="nav-link" href="#como">Cómo funciona</a>
+          <a class="nav-link" href="#diagnostico">Diagnóstico</a>
+          <button class="nav-cta" onclick="scrollToDiag()">Solicitar demo</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Soluciones digitales para empresas españolas
+      </div>
+      <h1 class="hero-title">
+        Tu empresa, <em>digitalizada</em><br>sin complicaciones
+      </h1>
+      <p class="hero-sub">
+        Desarrollamos aplicaciones web a medida para pequeñas y medianas empresas. 
+        Sin hardware, sin instalaciones complejas. Operativas en 48 horas.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToDiag()">
+          Solicitar diagnóstico gratuito →
+        </button>
+        <a class="btn-secondary" href="#productos">
+          Ver soluciones
+        </a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item"><span class="proof-icon">✓</span> Sin permanencia mínima</div>
+        <div class="proof-div"></div>
+        <div class="proof-item"><span class="proof-icon">✓</span> Operativo en 48h</div>
+        <div class="proof-div"></div>
+        <div class="proof-item"><span class="proof-icon">✓</span> Soporte directo por WhatsApp</div>
+        <div class="proof-div"></div>
+        <div class="proof-item"><span class="proof-icon">✓</span> Desde 25€/mes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="productos" id="productos">
+    <div class="container">
+      <p class="section-label reveal">Soluciones en desarrollo</p>
+      <h2 class="section-title reveal reveal-delay-1">Dos productos.<br><em>Un mismo objetivo.</em></h2>
+      <p class="section-sub reveal reveal-delay-2">Herramientas construidas desde cero para el día a día real de tu empresa, no adaptaciones genéricas.</p>
+
+      <div class="productos-grid">
+        <div class="producto-card jornada reveal reveal-delay-1">
+          <div class="producto-icon">⏱️</div>
+          <span class="producto-badge badge-live"><span class="badge-dot-sm"></span> En producción</span>
+          <h3>Control de Jornada</h3>
+          <p>Gestiona el registro de jornada laboral de toda tu plantilla desde un panel centralizado. Cumple con el Art. 34.9 del Estatuto de los Trabajadores.</p>
+          <ul class="feature-list">
+            <li>Fichaje GPS desde el móvil (sin app extra)</li>
+            <li>Panel admin en tiempo real</li>
+            <li>Excel oficial para Inspección de Trabajo</li>
+            <li>Firma digital de jornada mensual</li>
+            <li>Cuadrantes de turnos semanales</li>
+            <li>Gestión de ausencias y vacaciones</li>
+          </ul>
+          <a href="#diagnostico" class="producto-link" onclick="scrollToDiag()">Solicitar información →</a>
+        </div>
+
+        <div class="producto-card agenda reveal reveal-delay-2">
+          <div class="producto-icon">📅</div>
+          <span class="producto-badge badge-dev"><span class="badge-dot-sm"></span> En desarrollo</span>
+          <h3>Agenda Inteligente</h3>
+          <p>Sistema de gestión de reservas y citas para negocios con lógica propia. Tus clientes reservan solos, tú solo confirmas.</p>
+          <ul class="feature-list">
+            <li>Reservas por enlace personal del cliente</li>
+            <li>Calendario inteligente del profesional</li>
+            <li>Recordatorios automáticos por WhatsApp</li>
+            <li>Historial y seguimiento por cliente</li>
+            <li>Lista de espera con posición en cola</li>
+            <li>Sincronización con Google Calendar</li>
+          </ul>
+          <a href="#diagnostico" class="producto-link" onclick="scrollToDiag()">Solicitar información →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORES -->
+  <section id="sectores">
+    <div class="container">
+      <p class="section-label reveal">Sectores</p>
+      <h2 class="section-title reveal reveal-delay-1">¿En qué sector<br><em>opera tu empresa?</em></h2>
+      <p class="section-sub reveal reveal-delay-2">Adaptamos cada solución al funcionamiento real de tu sector. Selecciona el tuyo para ver cómo podemos ayudarte.</p>
+
+      <div class="sectores-grid reveal reveal-delay-2">
+        <div class="sector-card" data-sector="limpieza" onclick="selectSector(this)">
+          <span class="sector-emoji">🧹</span>
+          <div class="sector-name">Limpieza</div>
+          <div class="sector-desc">Control de jornada</div>
+        </div>
+        <div class="sector-card" data-sector="autoescuelas" onclick="selectSector(this)">
+          <span class="sector-emoji">🚗</span>
+          <div class="sector-name">Autoescuelas</div>
+          <div class="sector-desc">Agenda de prácticas</div>
+        </div>
+        <div class="sector-card" data-sector="hosteleria" onclick="selectSector(this)">
+          <span class="sector-emoji">🍽️</span>
+          <div class="sector-name">Hostelería</div>
+          <div class="sector-desc">Turnos y fichaje</div>
+        </div>
+        <div class="sector-card" data-sector="seguridad" onclick="selectSector(this)">
+          <span class="sector-emoji">🔒</span>
+          <div class="sector-name">Seguridad</div>
+          <div class="sector-desc">Rondas y control</div>
+        </div>
+        <div class="sector-card" data-sector="salud" onclick="selectSector(this)">
+          <span class="sector-emoji">🏥</span>
+          <div class="sector-name">Salud / Clínicas</div>
+          <div class="sector-desc">Citas y agenda</div>
+        </div>
+        <div class="sector-card" data-sector="academia" onclick="selectSector(this)">
+          <span class="sector-emoji">📚</span>
+          <div class="sector-name">Academias</div>
+          <div class="sector-desc">Clases y reservas</div>
+        </div>
+        <div class="sector-card" data-sector="logistica" onclick="selectSector(this)">
+          <span class="sector-emoji">🚛</span>
+          <div class="sector-name">Logística</div>
+          <div class="sector-desc">Control de equipo</div>
+        </div>
+        <div class="sector-card" data-sector="otro" onclick="selectSector(this)">
+          <span class="sector-emoji">💼</span>
+          <div class="sector-name">Otro sector</div>
+          <div class="sector-desc">Cuéntanos tu caso</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="como" id="como">
+    <div class="container">
+      <p class="section-label reveal">Proceso</p>
+      <h2 class="section-title reveal reveal-delay-1">En marcha en<br><em>menos de 48 horas.</em></h2>
+      <p class="section-sub reveal reveal-delay-2">Sin instalaciones, sin hardware, sin meses de implementación.</p>
+
+      <div class="steps-grid">
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-num">1</div>
+          <h3>Diagnóstico gratuito</h3>
+          <p>Cuéntanos qué necesita tu empresa. En menos de 24h te enviamos una propuesta personalizada sin ningún compromiso.</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-num">2</div>
+          <h3>Configuración y alta</h3>
+          <p>Configuramos todo el sistema, damos de alta a tu equipo y verificamos que funciona correctamente. Tú no tocas nada.</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-card reveal reveal-delay-3">
+          <div class="step-num">3</div>
+          <h3>Operativo y con soporte</h3>
+          <p>Tu equipo empieza a usar la app desde el móvil ese mismo día. Soporte directo incluido, sin call centers ni tickets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASO REAL -->
+  <section id="caso">
+    <div class="container">
+      <p class="section-label reveal">Caso real</p>
+      <h2 class="section-title reveal reveal-delay-1">Ya <em>funciona</em> en empresas reales.</h2>
+      <br>
+      <div class="caso-card reveal reveal-delay-2">
+        <div>
+          <span class="caso-tag">✓ En producción desde 2026</span>
+          <h3>APISA — Empresa de limpieza, Palencia</h3>
+          <p>44 empleadas gestionando su jornada laboral desde el móvil. Fichajes geolocalizados, cuadrantes semanales y Excel mensual para Inspección de Trabajo generado automáticamente. Sin papel, sin desplazamientos, sin complicaciones.</p>
+          <a class="producto-link" href="#diagnostico" onclick="scrollToDiag()" style="display:inline-flex; margin-top:18px;">Quiero algo similar para mi empresa →</a>
+        </div>
+        <div class="caso-stats">
+          <div class="stat-item">
+            <div class="stat-num">44</div>
+            <div class="stat-label">Empleadas activas</div>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-item">
+            <div class="stat-num">48h</div>
+            <div class="stat-label">Tiempo de puesta en marcha</div>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-item">
+            <div class="stat-num">0€</div>
+            <div class="stat-label">Hardware necesario</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIAGNÓSTICO INTERACTIVO -->
+  <section class="diag-section" id="diagnostico">
+    <div class="container">
+      <p class="section-label reveal">Diagnóstico gratuito</p>
+      <h2 class="section-title reveal reveal-delay-1">3 preguntas.<br><em>Una propuesta a medida.</em></h2>
+      <p class="section-sub reveal reveal-delay-2">Sin compromiso. Te enviamos una propuesta personalizada en menos de 24 horas.</p>
+
+      <div class="diag-wrapper reveal reveal-delay-2">
+        <div class="diag-header">
+          <div class="diag-header-text">
+            <h3>Diagnóstico rápido</h3>
+            <p id="diag-step-label">Paso 1 de 3 — Cuéntanos sobre tu empresa</p>
+          </div>
+          <div class="diag-progress-dots">
+            <div class="dpd active" id="dpd1"></div>
+            <div class="dpd" id="dpd2"></div>
+            <div class="dpd" id="dpd3"></div>
+            <div class="dpd" id="dpd4"></div>
+          </div>
+        </div>
+
+        <div class="diag-body">
+
+          <!-- PASO 1 -->
+          <div class="diag-panel active" id="dp1">
+            <div class="diag-question">¿Qué te quita más tiempo en tu empresa?</div>
+            <div class="diag-hint">Selecciona la opción que más se ajuste a tu situación actual.</div>
+            <div class="diag-options">
+              <div class="diag-opt" data-step="1" data-val="control-jornada" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">⏱️</span>
+                <div class="diag-opt-title">Controlar el horario del equipo</div>
+                <div class="diag-opt-desc">Fichajes, turnos, ausencias, horas extras</div>
+              </div>
+              <div class="diag-opt" data-step="1" data-val="gestion-citas" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">📅</span>
+                <div class="diag-opt-title">Gestionar citas o reservas</div>
+                <div class="diag-opt-desc">Agenda, confirmaciones, recordatorios</div>
+              </div>
+              <div class="diag-opt" data-step="1" data-val="papeles" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">📄</span>
+                <div class="diag-opt-title">Papeleo y documentación</div>
+                <div class="diag-opt-desc">Firmas, informes, registros oficiales</div>
+              </div>
+              <div class="diag-opt" data-step="1" data-val="comunicacion" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">💬</span>
+                <div class="diag-opt-title">Comunicación con el equipo</div>
+                <div class="diag-opt-desc">Avisos, cambios de turno, incidencias</div>
+              </div>
+            </div>
+            <div class="diag-nav">
+              <span></span>
+              <button class="diag-next" id="next1" disabled onclick="goStep(2)">Siguiente →</button>
+            </div>
+          </div>
+
+          <!-- PASO 2 -->
+          <div class="diag-panel" id="dp2">
+            <div class="diag-question">¿Cuántas personas trabajan en tu empresa?</div>
+            <div class="diag-hint">Esto nos ayuda a recomendarte el plan más adecuado.</div>
+            <div class="diag-options cols-3">
+              <div class="diag-opt" data-step="2" data-val="1-5" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">👤</span>
+                <div class="diag-opt-title">1 a 5</div>
+                <div class="diag-opt-desc">Microempresa</div>
+              </div>
+              <div class="diag-opt" data-step="2" data-val="6-15" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">👥</span>
+                <div class="diag-opt-title">6 a 15</div>
+                <div class="diag-opt-desc">Pequeña empresa</div>
+              </div>
+              <div class="diag-opt" data-step="2" data-val="16-50" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">🏢</span>
+                <div class="diag-opt-title">16 a 50</div>
+                <div class="diag-opt-desc">Empresa mediana</div>
+              </div>
+              <div class="diag-opt" data-step="2" data-val="50+" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">🏭</span>
+                <div class="diag-opt-title">Más de 50</div>
+                <div class="diag-opt-desc">Gran empresa</div>
+              </div>
+              <div class="diag-opt" data-step="2" data-val="autonomo" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">💼</span>
+                <div class="diag-opt-title">Solo yo</div>
+                <div class="diag-opt-desc">Autónomo</div>
+              </div>
+              <div class="diag-opt" data-step="2" data-val="nosé" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">🤔</span>
+                <div class="diag-opt-title">Varía</div>
+                <div class="diag-opt-desc">Depende la temporada</div>
+              </div>
+            </div>
+            <div class="diag-nav">
+              <button class="diag-back" onclick="goStep(1)">← Atrás</button>
+              <button class="diag-next" id="next2" disabled onclick="goStep(3)">Siguiente →</button>
+            </div>
+          </div>
+
+          <!-- PASO 3 -->
+          <div class="diag-panel" id="dp3">
+            <div class="diag-question">¿Qué resultado quieres conseguir?</div>
+            <div class="diag-hint">¿Cuál es el principal objetivo que buscas con una solución digital?</div>
+            <div class="diag-options">
+              <div class="diag-opt" data-step="3" data-val="ahorrar-tiempo" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">⚡</span>
+                <div class="diag-opt-title">Ahorrar tiempo en gestión</div>
+                <div class="diag-opt-desc">Automatizar tareas repetitivas</div>
+              </div>
+              <div class="diag-opt" data-step="3" data-val="cumplir-legal" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">⚖️</span>
+                <div class="diag-opt-title">Cumplir con la normativa</div>
+                <div class="diag-opt-desc">Inspección de Trabajo, RGPD</div>
+              </div>
+              <div class="diag-opt" data-step="3" data-val="mejorar-servicio" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">⭐</span>
+                <div class="diag-opt-title">Mejorar el servicio al cliente</div>
+                <div class="diag-opt-desc">Reservas, confirmaciones, comunicación</div>
+              </div>
+              <div class="diag-opt" data-step="3" data-val="control-equipo" onclick="selectOpt(this)">
+                <span class="diag-opt-icon">📊</span>
+                <div class="diag-opt-title">Tener más control del equipo</div>
+                <div class="diag-opt-desc">Visibilidad en tiempo real</div>
+              </div>
+            </div>
+            <div class="diag-nav">
+              <button class="diag-back" onclick="goStep(2)">← Atrás</button>
+              <button class="diag-next" id="next3" disabled onclick="goStep(4)">Ver propuesta →</button>
+            </div>
+          </div>
+
+          <!-- PASO 4 — FORMULARIO -->
+          <div class="diag-panel" id="dp4">
+            <div class="diag-result-header">
+              <strong id="result-title">Perfecto, tenemos una solución para ti</strong>
+              <p id="result-desc">Déjanos tus datos y te enviamos una propuesta personalizada en menos de 24 horas.</p>
+            </div>
+            <form id="diag-form" onsubmit="submitDiag(event)">
+              <input type="hidden" name="_subject" value="[MBL Studio] Nuevo diagnóstico recibido" />
+              <input type="hidden" name="q1" id="h_q1" />
+              <input type="hidden" name="q2" id="h_q2" />
+              <input type="hidden" name="q3" id="h_q3" />
+              <input type="hidden" name="sector" id="h_sector" />
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Nombre *</label>
+                  <input type="text" name="nombre" placeholder="Tu nombre" required />
+                </div>
+                <div class="form-field">
+                  <label>Empresa *</label>
+                  <input type="text" name="empresa" placeholder="Nombre de tu empresa" required />
+                </div>
+                <div class="form-field">
+                  <label>Teléfono *</label>
+                  <input type="tel" name="telefono" placeholder="600 000 000" required />
+                </div>
+                <div class="form-field">
+                  <label>Email</label>
+                  <input type="email" name="email" placeholder="tu@empresa.com" />
+                </div>
+                <div class="form-field">
+                  <label>Sector</label>
+                  <select name="sector_form">
+                    <option value="">Selecciona tu sector</option>
+                    <option value="limpieza">Limpieza</option>
+                    <option value="autoescuela">Autoescuela</option>
+                    <option value="hosteleria">Hostelería</option>
+                    <option value="seguridad">Seguridad</option>
+                    <option value="salud">Salud / Clínicas</option>
+                    <option value="academia">Academia / Formación</option>
+                    <option value="logistica">Logística</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Preferencia de contacto</label>
+                  <select name="preferencia">
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="llamada">Llamada telefónica</option>
+                    <option value="email">Email</option>
+                    <option value="videollamada">Videollamada</option>
+                  </select>
+                </div>
+                <div class="form-field full">
+                  <label>¿Algo más que quieras contarnos? (opcional)</label>
+                  <textarea name="extra" placeholder="Cuéntanos tu situación actual, qué usas ahora, qué te gustaría mejorar..."></textarea>
+                </div>
+              </div>
+              <button class="form-submit" type="submit">Enviar y recibir propuesta gratuita</button>
+              <p class="form-note">Sin compromiso · Respuesta en menos de 24h · desarrollo@mblcorporacion.es</p>
+            </form>
+            <div class="diag-success" id="diag-success">
+              <div class="success-icon">✅</div>
+              <h3>¡Solicitud recibida!</h3>
+              <p>Nos ponemos en contacto contigo en menos de 24 horas con una propuesta personalizada para tu empresa.</p>
+            </div>
+            <div class="diag-nav" style="margin-top:16px">
+              <button class="diag-back" onclick="goStep(3)">← Atrás</button>
+              <span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-mark"><span>MBL</span></div>
+          <span class="footer-name">MBL Studio</span>
+        </div>
+        <div class="footer-links">
+          <a class="footer-link" href="#productos">Productos</a>
+          <a class="footer-link" href="#sectores">Sectores</a>
+          <a class="footer-link" href="#como">Cómo funciona</a>
+          <a class="footer-link" href="#diagnostico">Diagnóstico</a>
+          <a class="footer-link" href="mailto:desarrollo@mblcorporacion.es">Contacto</a>
+        </div>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> MBL Studio · desarrollo@mblcorporacion.es · mblcorporacion.es · Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Año
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Scroll to diagnóstico
+    function scrollToDiag() {
+      document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Sector selection
+    let selectedSector = '';
+    function selectSector(el) {
+      document.querySelectorAll('.sector-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedSector = el.dataset.sector;
+      document.getElementById('h_sector').value = selectedSector;
+      setTimeout(() => scrollToDiag(), 300);
+    }
+
+    // Diagnóstico
+    const answers = { q1: '', q2: '', q3: '' };
+    const stepLabels = ['', 'Paso 1 de 3 — ¿Qué te quita tiempo?', 'Paso 2 de 3 — Tu equipo', 'Paso 3 de 3 — Tu objetivo', 'Tus datos de contacto'];
+
+    function selectOpt(el) {
+      const step = el.dataset.step;
+      const panel = document.getElementById('dp' + step);
+      panel.querySelectorAll('.diag-opt').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      answers['q' + step] = el.dataset.val;
+      document.getElementById('next' + step).disabled = false;
+    }
+
+    function goStep(n) {
+      document.querySelectorAll('.diag-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('dp' + n).classList.add('active');
+
+      // dots
+      for (let i = 1; i <= 4; i++) {
+        const d = document.getElementById('dpd' + i);
+        if (i < n) { d.classList.remove('active'); d.classList.add('done'); }
+        else if (i === n) { d.classList.add('active'); d.classList.remove('done'); }
+        else { d.classList.remove('active', 'done'); }
+      }
+
+      document.getElementById('diag-step-label').textContent = stepLabels[n];
+
+      if (n === 4) {
+        document.getElementById('h_q1').value = answers.q1;
+        document.getElementById('h_q2').value = answers.q2;
+        document.getElementById('h_q3').value = answers.q3;
+        updateResultText();
+      }
+    }
+
+    function updateResultText() {
+      const map = {
+        'control-jornada': 'Control de Jornada Laboral',
+        'gestion-citas': 'Agenda Inteligente',
+        'papeles': 'Gestión documental digital',
+        'comunicacion': 'Herramienta de comunicación de equipo'
+      };
+      const sol = map[answers.q1] || 'solución personalizada';
+      document.getElementById('result-title').textContent = `Tenemos una ${sol} para tu empresa`;
+    }
+
+    function submitDiag(e) {
+      e.preventDefault();
+      const form = document.getElementById('diag-form');
+      const data = new FormData(form);
+
+      // Envío a Formspree (reemplaza YOUR_FORM_ID con el tuyo)
+      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(r => {
+        if (r.ok) {
+          form.style.display = 'none';
+          document.getElementById('diag-success').style.display = 'block';
+        } else {
+          // Fallback: mailto
+          fallbackMail();
+        }
+      }).catch(() => fallbackMail());
+    }
+
+    function fallbackMail() {
+      const nombre = document.querySelector('[name=nombre]').value;
+      const empresa = document.querySelector('[name=empresa]').value;
+      const tel = document.querySelector('[name=telefono]').value;
+      const extra = document.querySelector('[name=extra]').value;
+      const subject = encodeURIComponent('[MBL Studio] Diagnóstico — ' + (empresa || 'Nueva consulta'));
+      const body = encodeURIComponent(
+`Hola MBL Studio,
+
+He completado el diagnóstico en vuestra web.
+
+— Respuestas:
+1) Qué me quita tiempo: ${answers.q1}
+2) Tamaño del equipo: ${answers.q2}
+3) Objetivo: ${answers.q3}
+4) Sector: ${selectedSector || 'No indicado'}
+
+— Datos de contacto:
+Nombre: ${nombre}
+Empresa: ${empresa}
+Teléfono: ${tel}
+Extra: ${extra || '-'}
+
+Gracias.`);
+      window.location.href = `mailto:desarrollo@mblcorporacion.es?subject=${subject}&body=${body}`;
+      document.getElementById('diag-form').style.display = 'none';
+      document.getElementById('diag-success').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
