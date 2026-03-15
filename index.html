@@ -1014,18 +1014,49 @@
         sector: selectedSector
       };
 
+      // Enviar a Telegram
+      function sendTelegram(nombre, empresa, telefono, email, sector_form, preferencia, extra) {
+        const BOT_TOKEN = '8771261571:AAGOC1y7WyjPLax3UxzlpegZvvb3czPvKtc';
+        const CHAT_ID = '913438273';
+        const msg = `🔔 *Nuevo lead en MBL Studio*
+
+👤 *Nombre:* ${nombre || '—'}
+🏢 *Empresa:* ${empresa || '—'}
+📞 *Teléfono:* ${telefono || '—'}
+📧 *Email:* ${email || '—'}
+
+📋 *Diagnóstico:*
+1️⃣ Qué le quita tiempo: ${answers.q1 || '—'}
+2️⃣ Tamaño del equipo: ${answers.q2 || '—'}
+3️⃣ Objetivo: ${answers.q3 || '—'}
+
+🏭 *Sector:* ${sector_form || selectedSector || '—'}
+⭐ *Preferencia:* ${preferencia || '—'}
+💬 *Mensaje extra:* ${extra || '—'}`;
+
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
+        }).catch(() => {});
+      }
+
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
       }).then(r => r.json()).then(res => {
+        sendTelegram(nombre, empresa, telefono, email, sector_form, preferencia, extra);
         if (res.success) {
           form.style.display = 'none';
           document.getElementById('diag-success').style.display = 'block';
         } else {
           fallbackMail();
         }
-      }).catch(() => fallbackMail());
+      }).catch(() => {
+        sendTelegram(nombre, empresa, telefono, email, sector_form, preferencia, extra);
+        fallbackMail();
+      });
     }
 
     function fallbackMail() {
