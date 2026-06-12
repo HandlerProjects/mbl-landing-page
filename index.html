@@ -3,11 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MBL Studio — Aplicaciones a medida para tu empresa</title>
-  <meta name="description" content="Desarrollamos aplicaciones web a medida para pequeñas y medianas empresas. Simples, modernas y asequibles." />
+  <title>MBL Studio — Software para Empresas | Palencia y España</title>
+  <meta name="description" content="Aplicaciones web a medida para pequeñas y medianas empresas en España. Control de jornada laboral, agenda de citas. Sin hardware, operativo en 48h. Desde 25€/mes." />
+  <link rel="canonical" href="https://landing.mblcorporacion.es" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://landing.mblcorporacion.es" />
+  <meta property="og:title" content="MBL Studio — Software para Empresas | Palencia y España" />
+  <meta property="og:description" content="Aplicaciones web a medida para pequeñas y medianas empresas. Control de jornada laboral, agenda inteligente. Operativo en 48h. Desde 25€/mes." />
+  <meta property="og:image" content="https://landing.mblcorporacion.es/og-image.png" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="MBL Studio" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MBL Studio — Software para Empresas" />
+  <meta name="twitter:description" content="Aplicaciones web a medida para empresas. Desde 25€/mes. Operativo en 48h." />
+  <meta name="twitter:image" content="https://landing.mblcorporacion.es/og-image.png" />
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MBL Studio",
+    "url": "https://landing.mblcorporacion.es",
+    "email": "desarrollo@mblcorporacion.es",
+    "description": "Software a medida para pequeñas y medianas empresas en España",
+    "areaServed": ["Palencia", "Castilla y León", "España", "Italia"],
+    "foundingDate": "2024"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta digitalizar mi empresa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El alta es de 99€ y la mensualidad depende del tamaño del equipo: desde 25€/mes para hasta 10 empleados, hasta 69€/mes para hasta 50. Sin costes ocultos ni hardware adicional." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Ofrecéis soporte presencial o solo online?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Trabajamos con empresas de toda España, con presencia especial en Palencia y Castilla y León. Para clientes en la zona, ofrecemos formación presencial opcional (150€). El soporte del día a día es por WhatsApp directo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué incluye el diagnóstico gratuito?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Analizamos la situación de tu empresa, qué procesos te quitan más tiempo y qué solución encaja mejor. Te enviamos una propuesta personalizada con precio cerrado en menos de 24 horas, sin compromiso." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo tarda en estar operativo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Normalmente 48 horas desde que confirmas el alta. Configuramos todo el sistema y damos de alta a tu equipo. No necesitas instalar nada ni tener conocimientos técnicos." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay permanencia mínima?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Puedes cancelar cuando quieras. No pedimos contratos de largo plazo porque creemos que si el producto es bueno, no hacen falta." }
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #f0efe9;
@@ -470,6 +530,32 @@
     .footer-link:hover { color: white; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); width: 100%; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
 
+    /* ── FAQ ── */
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item summary {
+      font-size: 15px; font-weight: 600; color: var(--text);
+      padding: 20px 24px; cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-item summary:hover { background: var(--bg2); }
+    .faq-item summary::after {
+      content: '+'; font-size: 20px; font-weight: 400;
+      color: var(--accent); flex-shrink: 0; margin-left: 16px;
+      transition: transform 0.25s ease;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p {
+      font-size: 14px; color: var(--muted); line-height: 1.65;
+      padding: 0 24px 20px; margin: 0;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .productos-grid { grid-template-columns: 1fr; }
@@ -500,6 +586,7 @@
           <a class="nav-link" href="#productos">Productos</a>
           <a class="nav-link" href="#como">Cómo funciona</a>
           <a class="nav-link" href="#diagnostico">Diagnóstico</a>
+          <a class="nav-link" href="#faq">FAQ</a>
           <button class="nav-cta" onclick="scrollToDiag()">Solicitar demo</button>
         </nav>
       </div>
@@ -902,6 +989,48 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" style="padding: 90px 0;">
+    <div class="container">
+      <p class="section-label reveal">Preguntas frecuentes</p>
+      <h2 class="section-title reveal reveal-delay-1">Lo que nos suelen<br><em>preguntar.</em></h2>
+
+      <div style="max-width: 720px; margin-top: 48px; display: flex; flex-direction: column; gap: 12px;">
+
+        <details class="faq-item reveal reveal-delay-1">
+          <summary>¿Cuánto cuesta digitalizar mi empresa?</summary>
+          <p>El alta es de 99€ y la mensualidad depende del tamaño del equipo: desde 25€/mes para hasta 10 empleados, hasta 69€/mes para hasta 50. Sin costes ocultos ni hardware adicional.</p>
+        </details>
+
+        <details class="faq-item reveal reveal-delay-2">
+          <summary>¿Ofrecéis soporte presencial o solo online?</summary>
+          <p>Trabajamos con empresas de toda España, con presencia especial en Palencia y Castilla y León. Para clientes en la zona, ofrecemos formación presencial opcional (150€). El soporte del día a día es por WhatsApp directo.</p>
+        </details>
+
+        <details class="faq-item reveal reveal-delay-3">
+          <summary>¿Qué incluye el diagnóstico gratuito?</summary>
+          <p>Analizamos la situación de tu empresa, qué procesos te quitan más tiempo y qué solución encaja mejor. Te enviamos una propuesta personalizada con precio cerrado en menos de 24 horas, sin compromiso.</p>
+        </details>
+
+        <details class="faq-item reveal reveal-delay-1">
+          <summary>¿Cuánto tiempo tarda en estar operativo?</summary>
+          <p>Normalmente 48 horas desde que confirmas el alta. Configuramos todo el sistema y damos de alta a tu equipo. No necesitas instalar nada ni tener conocimientos técnicos.</p>
+        </details>
+
+        <details class="faq-item reveal reveal-delay-2">
+          <summary>¿Funciona para empresas muy pequeñas o autónomos?</summary>
+          <p>Sí. Tenemos clientes desde 1 empleado hasta más de 50. El sistema escala contigo: pagas según el tamaño real de tu equipo y puedes cambiar de plan en cualquier momento.</p>
+        </details>
+
+        <details class="faq-item reveal reveal-delay-3">
+          <summary>¿Hay permanencia mínima?</summary>
+          <p>No. Puedes cancelar cuando quieras. No pedimos contratos de largo plazo porque creemos que si el producto es bueno, no hacen falta.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -915,6 +1044,7 @@
           <a class="footer-link" href="#sectores">Sectores</a>
           <a class="footer-link" href="#como">Cómo funciona</a>
           <a class="footer-link" href="#diagnostico">Diagnóstico</a>
+          <a class="footer-link" href="#faq">FAQ</a>
           <a class="footer-link" href="mailto:desarrollo@mblcorporacion.es">Contacto</a>
         </div>
       </div>
