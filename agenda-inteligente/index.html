@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda Inteligente para Empresas | MBL Studio</title>
+  <meta name="description" content="Software de agenda de citas para empresas: reservas online 24/7, recordatorios automáticos, sin llamadas ni papel. Acceso anticipado disponible. MBL Studio." />
+  <link rel="canonical" href="https://landing.mblcorporacion.es/agenda-inteligente/" />
+  <link rel="icon" type="image/png" href="/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://landing.mblcorporacion.es/agenda-inteligente/" />
+  <meta property="og:title" content="Agenda Inteligente para Empresas | MBL Studio" />
+  <meta property="og:description" content="Reservas online 24/7, recordatorios automáticos, sin llamadas ni papel. Acceso anticipado disponible." />
+  <meta property="og:image" content="https://landing.mblcorporacion.es/og-image.png" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="MBL Studio" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Agenda Inteligente | MBL Studio" />
+  <meta name="twitter:description" content="Reservas online 24/7 para tu negocio. Sin llamadas ni papel." />
+  <meta name="twitter:image" content="https://landing.mblcorporacion.es/og-image.png" />
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Agenda Inteligente MBL Studio",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Software de gestión de citas y reservas online para pequeñas y medianas empresas. Reservas 24/7, recordatorios automáticos, gestión de empleados y horarios.",
+    "offers": {
+      "@type": "Offer",
+      "price": "25",
+      "priceCurrency": "EUR",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "unitText": "MONTH" }
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "MBL Studio",
+      "url": "https://landing.mblcorporacion.es",
+      "telephone": "+34686579082",
+      "email": "desarrollo@mblcorporacion.es",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Palencia",
+        "addressRegion": "Castilla y León",
+        "addressCountry": "ES"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "MBL Studio", "item": "https://landing.mblcorporacion.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Agenda Inteligente", "item": "https://landing.mblcorporacion.es/agenda-inteligente/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Pueden los clientes reservar cita solos sin llamar?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cada negocio tiene su propio enlace de reserva que puedes compartir por WhatsApp, Instagram o tu web. El cliente elige el servicio, el empleado y el horario disponible, y confirma en un clic. Sin llamadas, sin papel." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se envían recordatorios automáticos?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. El sistema envía recordatorios automáticos por WhatsApp o email antes de cada cita para reducir los no-shows. Tú decides cuándo y cómo." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona para negocios con varios empleados?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cada empleado tiene su propio calendario y disponibilidad. El cliente puede elegir con quién quiere la cita o dejarlo al azar." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuándo estará disponible?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La Agenda Inteligente está en desarrollo activo. Los negocios que se apunten ahora a la lista de acceso anticipado tendrán precio especial de lanzamiento y acceso antes que nadie." }
+      }
+    ]
+  }
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW3J0Y50KV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HW3J0Y50KV');
+  </script>
+  <style>
+    :root {
+      --bg: #f0efe9; --bg2: #f7f6f2; --surface: #ffffff;
+      --border: rgba(0,0,0,0.07); --border2: rgba(0,0,0,0.04);
+      --text: #1d1d1f; --muted: #6e6e73; --soft: #a1a1a6;
+      --accent: #2c5282; --accent-h: #2a4a7f;
+      --accent-light: rgba(44,82,130,0.07); --accent-mid: rgba(44,82,130,0.13);
+      --green: #30d158; --green2: #1a9e3f;
+      --radius: 20px; --radius2: 28px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+      --shadow: 0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05);
+      --max: 1060px; --font: 'Outfit', system-ui, sans-serif; --serif: 'DM Serif Display', Georgia, serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(.22,.68,0,1.2), transform 0.7s cubic-bezier(.22,.68,0,1.2); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; }
+
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(250,250,250,0.85); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 54px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .brand-mark { width: 33px; height: 33px; border-radius: 9px; background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .brand-mark span { font-weight: 900; font-size: 11px; color: white; letter-spacing: -0.3px; }
+    .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.3px; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 6px 12px; border-radius: 20px; transition: color 0.2s, background 0.2s; }
+    .nav-link:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+    .nav-cta { font-size: 13px; font-weight: 600; color: white; background: var(--accent); border: none; cursor: pointer; padding: 8px 18px; border-radius: 20px; text-decoration: none; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--accent-h); transform: translateY(-1px); }
+
+    .breadcrumb { padding: 80px 0 0; }
+    .breadcrumb-inner { padding: 12px 0 0; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+    .breadcrumb-inner a { color: var(--muted); text-decoration: none; }
+    .breadcrumb-inner a:hover { color: var(--accent); }
+    .breadcrumb-sep { opacity: .4; }
+    .breadcrumb-current { color: var(--text); font-weight: 500; }
+
+    .hero { padding: 40px 0 90px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 900px 500px at 50% -80px, rgba(48,209,88,0.06), transparent), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+    .hero-content { position: relative; z-index: 1; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(48,209,88,0.08); border: 1px solid rgba(48,209,88,0.2); border-radius: 999px; padding: 6px 16px; font-size: 12px; font-weight: 600; color: var(--green2); margin-bottom: 28px; opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s 0.1s ease forwards; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero-title { font-size: clamp(38px, 6vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; opacity: 0; transform: translateY(20px); animation: fadeUp 0.7s 0.2s ease forwards; }
+    .hero-title em { font-style: normal; font-family: var(--serif); font-weight: 400; color: var(--green2); }
+    .hero-sub { font-size: clamp(15px, 2vw, 18px); font-weight: 400; color: var(--muted); max-width: 52ch; margin: 0 auto 36px; line-height: 1.6; opacity: 0; transform: translateY(20px); animation: fadeUp 0.7s 0.3s ease forwards; }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; opacity: 0; transform: translateY(20px); animation: fadeUp 0.7s 0.4s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--green2); color: white; font-family: var(--font); font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer; text-decoration: none; box-shadow: 0 8px 24px rgba(48,209,88,0.25); transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
+    .btn-primary:hover { background: #158a34; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(48,209,88,0.32); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); color: var(--text); font-family: var(--font); font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 14px; border: 1px solid var(--border); cursor: pointer; text-decoration: none; box-shadow: var(--shadow-sm); transition: background 0.2s, transform 0.15s; }
+    .btn-secondary:hover { background: var(--bg2); transform: translateY(-2px); }
+    .hero-proof { margin-top: 44px; display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 0.6s ease forwards; }
+    .proof-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+    .proof-div { width: 1px; height: 16px; background: var(--border); }
+
+    /* EARLY ACCESS BANNER */
+    .early-banner { background: linear-gradient(135deg, #0f2d1a, #1a5c35); border-radius: var(--radius2); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .early-left { display: flex; align-items: center; gap: 16px; }
+    .early-icon { font-size: 32px; flex-shrink: 0; }
+    .early-text h3 { font-size: 17px; font-weight: 800; color: white; margin-bottom: 5px; }
+    .early-text p { font-size: 13.5px; color: rgba(255,255,255,.7); line-height: 1.5; max-width: 50ch; }
+    .early-text p strong { color: white; }
+    .early-pill { display: flex; align-items: center; gap: 6px; background: rgba(48,209,88,.15); border: 1px solid rgba(48,209,88,.3); border-radius: 999px; padding: 6px 16px; font-size: 12px; font-weight: 700; color: var(--green); white-space: nowrap; }
+
+    section { padding: 80px 0; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--green2); margin-bottom: 14px; }
+    .section-title { font-size: clamp(26px, 4vw, 42px); font-weight: 800; letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 14px; }
+    .section-title em { font-style: italic; font-family: var(--serif); font-weight: 400; }
+    .section-sub { font-size: 17px; color: var(--muted); line-height: 1.6; max-width: 54ch; margin-bottom: 48px; }
+
+    .funciones { background: var(--bg2); }
+    .funciones-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .funcion-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 28px 24px; box-shadow: var(--shadow-sm); transition: transform 0.25s cubic-bezier(.22,.68,0,1.2), box-shadow 0.25s; }
+    .funcion-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .funcion-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .funcion-card h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px; }
+    .funcion-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+    .sectores { background: var(--bg); }
+    .sectores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .sector-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 18px; text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.25s cubic-bezier(.22,.68,0,1.2), box-shadow 0.25s; }
+    .sector-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--green2); }
+    .sector-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+    .sector-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .sector-desc { font-size: 11px; color: var(--soft); }
+
+    .como { background: var(--bg2); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 32px 28px; box-shadow: var(--shadow-sm); position: relative; }
+    .step-num { width: 36px; height: 36px; border-radius: 10px; background: var(--green2); color: white; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .step-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .step-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .step-connector { position: absolute; top: 50px; right: -12px; width: 24px; height: 2px; background: var(--border); z-index: 1; }
+
+    .faq { background: var(--bg); }
+    .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 700px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; gap: 16px; }
+    .faq-q h3 { font-size: 15px; font-weight: 600; letter-spacing: -0.2px; }
+    .faq-chevron { font-size: 12px; color: var(--muted); flex-shrink: 0; transition: transform .2s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s; }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 18px; }
+
+    .cta-final { background: linear-gradient(135deg, #0f2d1a 0%, #1a9e3f 100%); color: white; text-align: center; padding: 80px 0; }
+    .cta-final h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1.2px; margin-bottom: 14px; }
+    .cta-final p { font-size: 17px; opacity: .75; margin-bottom: 36px; max-width: 48ch; margin-left: auto; margin-right: auto; }
+    .cta-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--green2); font-family: var(--font); font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 14px; text-decoration: none; transition: transform .15s, box-shadow .2s; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,.28); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: white; font-family: var(--font); font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 14px; border: 1px solid rgba(255,255,255,.2); text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-ghost:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 32px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-size: 13px; color: var(--soft); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--green2); }
+
+    @media (max-width: 768px) {
+      .funciones-grid, .steps-grid { grid-template-columns: 1fr; }
+      .step-connector { display: none; }
+      .sectores-grid { grid-template-columns: repeat(2, 1fr); }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <div class="brand-mark"><span>MBL</span></div>
+        <span class="brand-name">MBL Studio</span>
+      </a>
+      <nav>
+        <a class="nav-link" href="/#productos">Productos</a>
+        <a class="nav-link" href="/#como">Cómo funciona</a>
+        <a class="nav-link" href="/#faq">FAQ</a>
+        <a class="nav-cta" href="/#diagnostico">Diagnóstico gratis</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="/">MBL Studio</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Agenda Inteligente</span>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        Próximo lanzamiento — acceso anticipado abierto
+      </div>
+      <h1 class="hero-title">
+        Tu agenda siempre llena,<br><em>tú sin el teléfono.</em>
+      </h1>
+      <p class="hero-sub">
+        Tus clientes reservan solos a cualquier hora. Tú recibes la cita confirmada, ellos reciben el recordatorio. Sin llamadas, sin papel, sin no-shows.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/#diagnostico">Apuntarme al acceso anticipado →</a>
+        <a class="btn-secondary" href="/#productos">Ver todos los productos</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">✓ Reservas 24/7 sin intervención</div>
+        <div class="proof-div"></div>
+        <div class="proof-item">✓ Recordatorios automáticos</div>
+        <div class="proof-div"></div>
+        <div class="proof-item">✓ Precio especial de lanzamiento</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EARLY ACCESS -->
+<section style="padding: 0 0 60px;">
+  <div class="container">
+    <div class="early-banner reveal">
+      <div class="early-left">
+        <div class="early-icon">🎯</div>
+        <div class="early-text">
+          <h3>Apúntate ahora — precio especial de lanzamiento</h3>
+          <p>La Agenda Inteligente está en desarrollo activo. Los negocios que se registren ahora tendrán <strong>precio de lanzamiento bloqueado</strong> y acceso antes que nadie. Sin compromiso — si cuando salga no te convence, cancelas.</p>
+        </div>
+      </div>
+      <div class="early-pill">
+        <span>●</span> En desarrollo
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section class="funciones">
+  <div class="container">
+    <div class="section-label">Funcionalidades</div>
+    <h2 class="section-title">Todo lo que <em>necesita tu negocio.</em></h2>
+    <p class="section-sub">Diseñado para negocios con citas: peluquerías, clínicas, centros de estética, talleres, consultas y más.</p>
+    <div class="funciones-grid">
+      <div class="funcion-card reveal">
+        <span class="funcion-icon">🔗</span>
+        <h3>Enlace de reserva propio</h3>
+        <p>Tu negocio tiene su propia página de reservas. Compártela por WhatsApp, Instagram o ponla en tu web. El cliente reserva en 30 segundos.</p>
+      </div>
+      <div class="funcion-card reveal reveal-delay-1">
+        <span class="funcion-icon">📲</span>
+        <h3>Recordatorios automáticos</h3>
+        <p>El sistema avisa al cliente por WhatsApp o email 24 horas antes. Reduce los no-shows hasta un 70% sin que tengas que hacer nada.</p>
+      </div>
+      <div class="funcion-card reveal reveal-delay-2">
+        <span class="funcion-icon">👤</span>
+        <h3>Gestión de empleados</h3>
+        <p>Cada empleado tiene su propio horario y disponibilidad. El cliente puede elegir con quién quiere la cita o asignarlo automáticamente.</p>
+      </div>
+      <div class="funcion-card reveal">
+        <span class="funcion-icon">📅</span>
+        <h3>Panel de control en tiempo real</h3>
+        <p>Ve todas las citas del día, la semana o el mes de un vistazo. Mueve, cancela o añade citas manualmente cuando lo necesites.</p>
+      </div>
+      <div class="funcion-card reveal reveal-delay-1">
+        <span class="funcion-icon">⏰</span>
+        <h3>Horarios y servicios configurables</h3>
+        <p>Define tus servicios, duración y precio de cada uno. El sistema bloquea automáticamente el tiempo necesario para cada cita.</p>
+      </div>
+      <div class="funcion-card reveal reveal-delay-2">
+        <span class="funcion-icon">📊</span>
+        <h3>Estadísticas del negocio</h3>
+        <p>Cuántas citas, cuántos no-shows, qué servicio se pide más, qué empleado está más ocupado. Todo en un panel claro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORES -->
+<section class="sectores">
+  <div class="container">
+    <div class="section-label">¿Para quién es?</div>
+    <h2 class="section-title">Cualquier negocio <em>que trabaje con citas.</em></h2>
+    <p class="section-sub">Si tus clientes reservan hora, esto es para ti.</p>
+    <div class="sectores-grid reveal">
+      <div class="sector-card">
+        <span class="sector-emoji">✂️</span>
+        <div class="sector-name">Peluquerías</div>
+        <div class="sector-desc">Cortes, tintes, tratamientos</div>
+      </div>
+      <div class="sector-card">
+        <span class="sector-emoji">💆</span>
+        <div class="sector-name">Estética y Belleza</div>
+        <div class="sector-desc">Uñas, masajes, depilación</div>
+      </div>
+      <div class="sector-card">
+        <span class="sector-emoji">🦷</span>
+        <div class="sector-name">Clínicas y Consultas</div>
+        <div class="sector-desc">Médicos, fisios, psicólogos</div>
+      </div>
+      <div class="sector-card">
+        <span class="sector-emoji">🔧</span>
+        <div class="sector-name">Talleres</div>
+        <div class="sector-desc">Revisiones y reparaciones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="como">
+  <div class="container">
+    <div class="section-label">Proceso</div>
+    <h2 class="section-title">Operativo en <em>menos de 48 horas.</em></h2>
+    <p class="section-sub">Sin formación técnica. Nosotros lo configuramos todo.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-connector"></div>
+        <div class="step-num">1</div>
+        <h3>Nos dices cómo funciona tu negocio</h3>
+        <p>Servicios, duración, precios, empleados y horarios. Una conversación por WhatsApp es suficiente.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-connector"></div>
+        <div class="step-num">2</div>
+        <h3>Configuramos todo nosotros</h3>
+        <p>En menos de 48 horas tu página de reservas está lista, personalizada con el nombre y colores de tu negocio.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <h3>Compartes el enlace y listo</h3>
+        <p>Lo pones en tu Instagram, en tu WhatsApp de empresa o en tu web. Desde ese momento los clientes reservan solos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title" style="margin-bottom:36px">Lo que nos suelen <em>preguntar.</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>¿Pueden los clientes reservar solos sin llamar?</h3>
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Sí. Cada negocio tiene su propio enlace de reserva que puedes compartir por WhatsApp, Instagram o tu web. El cliente elige el servicio, el empleado y el horario disponible, y confirma en un clic.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>¿Se envían recordatorios automáticos?</h3>
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Sí. El sistema envía recordatorios automáticos por WhatsApp o email antes de cada cita para reducir los no-shows. Tú decides cuándo y cómo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>¿Funciona para negocios con varios empleados?</h3>
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Sí. Cada empleado tiene su propio calendario y disponibilidad. El cliente puede elegir con quién quiere la cita o dejarlo al sistema.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <h3>¿Cuándo estará disponible?</h3>
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">La Agenda Inteligente está en desarrollo activo. Los negocios que se apunten ahora tendrán precio especial de lanzamiento y acceso antes que nadie.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <div class="container">
+    <h2 class="reveal">¿Tu agenda aún depende del teléfono?</h2>
+    <p class="reveal reveal-delay-1">Apúntate al acceso anticipado. Sin compromiso. Precio de lanzamiento bloqueado para los primeros negocios.</p>
+    <div class="cta-row reveal reveal-delay-2">
+      <a class="btn-white" href="/#diagnostico">Quiero acceso anticipado →</a>
+      <a class="btn-ghost" href="mailto:desarrollo@mblcorporacion.es">desarrollo@mblcorporacion.es</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 MBL Studio — Palencia, España</div>
+      <div class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/control-jornada/">Control de Jornada</a>
+        <a href="/agenda-inteligente/">Agenda Inteligente</a>
+        <a href="/#diagnostico">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

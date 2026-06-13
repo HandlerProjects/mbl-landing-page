@@ -353,6 +353,98 @@
     }
     .producto-link:hover { gap: 9px; }
 
+    /* ── WEB A MEDIDA ── */
+    .web-medida { background: var(--bg); padding: 0 0 80px; }
+    .web-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      position: relative;
+    }
+    .web-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: var(--radius2) var(--radius2) 0 0;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+    }
+    .web-card-left { padding: 44px 44px 44px 44px; }
+    .web-icon { font-size: 36px; margin-bottom: 16px; }
+    .web-title {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .web-title em { font-style: normal; font-family: var(--serif); font-weight: 400; color: #6366f1; }
+    .web-sub { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 40ch; margin-bottom: 24px; }
+    .web-features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .web-features li {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 13px; color: var(--muted);
+    }
+    .web-features li::before {
+      content: ''; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(99,102,241,0.08);
+      border: 1.5px solid rgba(99,102,241,0.2);
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%236366f1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+    .web-card-right {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 44px;
+    }
+    .web-preview {
+      background: white;
+      border-radius: 14px;
+      box-shadow: var(--shadow-lg);
+      width: 100%; max-width: 320px;
+      padding: 16px;
+      border: 1px solid rgba(99,102,241,0.1);
+    }
+    .wp-bar { display: flex; gap: 5px; margin-bottom: 12px; }
+    .wp-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+    .wp-bar span:nth-child(1) { background: #fca5a5; }
+    .wp-bar span:nth-child(2) { background: #fde68a; }
+    .wp-bar span:nth-child(3) { background: #86efac; }
+    .wp-hero { height: 90px; background: linear-gradient(135deg, #6366f1, #a855f7); border-radius: 10px; margin-bottom: 14px; }
+    .wp-lines { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; padding: 0 4px; }
+    .wp-line { height: 8px; background: var(--border); border-radius: 999px; }
+    .wp-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 4px; }
+    .wp-card { height: 52px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); }
+    @media (max-width: 768px) {
+      .web-card { grid-template-columns: 1fr; }
+      .web-card-right { display: none; }
+      .web-card-left { padding: 32px 24px; }
+    }
+    /* ── EXTRAS SECUNDARIOS ── */
+    .web-extras { margin-top: 20px; }
+    .web-extras-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 14px;
+    }
+    .web-extras-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .web-extra-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px 20px;
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .web-extra-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.06); transform: translateY(-2px); }
+    .web-extra-icon { font-size: 26px; flex-shrink: 0; }
+    .web-extra-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .web-extra-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    @media (max-width: 768px) {
+      .web-extras-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── SECTORES ── */
     .sectores-grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
@@ -670,6 +762,7 @@
             <li>Gestión de ausencias y vacaciones</li>
           </ul>
           <a href="#diagnostico" class="producto-link" onclick="scrollToDiag()">Solicitar información →</a>
+          <a href="/control-jornada/" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;color:var(--soft);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--soft)'">Ver página completa →</a>
         </div>
 
         <div class="producto-card agenda reveal reveal-delay-2">
@@ -688,6 +781,73 @@
           <a href="#diagnostico" class="producto-link" onclick="scrollToDiag()">Solicitar información →</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- WEB A MEDIDA -->
+  <section class="web-medida">
+    <div class="container">
+
+      <!-- CARTA PRINCIPAL -->
+      <div class="web-card reveal">
+        <div class="web-card-left">
+          <div class="web-icon">🌐</div>
+          <span class="producto-badge badge-live" style="margin-bottom:16px"><span class="badge-dot-sm"></span> Disponible</span>
+          <h2 class="web-title">¿Tu empresa necesita<br><em>una web que funcione?</em></h2>
+          <p class="web-sub">Te creamos la web desde cero o mejoramos la que ya tienes. Diseño profesional, rápido y adaptado a móvil. Sin plantillas genéricas.</p>
+          <ul class="web-features">
+            <li>Diseño a medida según tu negocio</li>
+            <li>Dominio, hosting y SSL incluidos</li>
+            <li>SEO y velocidad optimizados desde el primer día</li>
+            <li>Entregada en menos de dos semanas</li>
+          </ul>
+          <a href="#diagnostico" class="btn-primary" onclick="scrollToDiag()" style="display:inline-flex;margin-top:28px;font-size:14px;padding:12px 24px;">Pedir presupuesto gratis →</a>
+        </div>
+        <div class="web-card-right">
+          <div class="web-preview">
+            <div class="wp-bar"><span></span><span></span><span></span></div>
+            <div class="wp-hero"></div>
+            <div class="wp-lines">
+              <div class="wp-line" style="width:60%"></div>
+              <div class="wp-line" style="width:40%"></div>
+            </div>
+            <div class="wp-cards">
+              <div class="wp-card"></div>
+              <div class="wp-card"></div>
+              <div class="wp-card"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTRAS SECUNDARIOS -->
+      <div class="web-extras reveal reveal-delay-1">
+        <div class="web-extras-label">También puedes añadir</div>
+        <div class="web-extras-grid">
+          <div class="web-extra-card">
+            <span class="web-extra-icon">🔍</span>
+            <div class="web-extra-text">
+              <div class="web-extra-title">Auditoría SEO</div>
+              <div class="web-extra-desc">Analizamos tu web y te damos un informe con todo lo que Google no te perdona y cómo corregirlo.</div>
+            </div>
+          </div>
+          <div class="web-extra-card">
+            <span class="web-extra-icon">✍️</span>
+            <div class="web-extra-text">
+              <div class="web-extra-title">Textos y contenido</div>
+              <div class="web-extra-desc">Redactamos los textos de tu web para que convenzan a tus clientes y posicionen en Google.</div>
+            </div>
+          </div>
+          <div class="web-extra-card">
+            <span class="web-extra-icon">📍</span>
+            <div class="web-extra-text">
+              <div class="web-extra-title">Visibilidad local</div>
+              <div class="web-extra-desc">Configuramos Google Business y Google Search Console para que tu empresa aparezca en las búsquedas de tu zona.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -852,6 +1012,13 @@
                 <span class="diag-opt-icon">💬</span>
                 <div class="diag-opt-title">Comunicación con el equipo</div>
                 <div class="diag-opt-desc">Avisos, cambios de turno, incidencias</div>
+              </div>
+              <div class="diag-opt" data-step="1" data-val="pagina-web" onclick="selectOpt(this)" style="grid-column: 1 / -1; display:flex; flex-direction:row; align-items:center; gap:14px; text-align:left;">
+                <span class="diag-opt-icon" style="margin-bottom:0; font-size:26px; flex-shrink:0;">🌐</span>
+                <div>
+                  <div class="diag-opt-title">Mejorar o crear la web del negocio</div>
+                  <div class="diag-opt-desc">SEO, posicionamiento, velocidad o web desde cero</div>
+                </div>
               </div>
             </div>
             <div class="diag-nav">
@@ -1139,7 +1306,8 @@
         'control-jornada': 'Control de Jornada Laboral',
         'gestion-citas': 'Agenda Inteligente',
         'papeles': 'Gestión documental digital',
-        'comunicacion': 'Herramienta de comunicación de equipo'
+        'comunicacion': 'Herramienta de comunicación de equipo',
+        'pagina-web': 'solución de presencia online'
       };
       const sol = map[answers.q1] || 'solución personalizada';
       document.getElementById('result-title').textContent = `Tenemos una ${sol} para tu empresa`;
